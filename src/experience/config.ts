@@ -203,9 +203,9 @@ export const SLIDES: SlideConfig[] = [
   {
     index: 3,
     slug: "investigate",
-    title: "Investigate",
+    title: "Fabricate",
     description:
-      "Drones have become essential in a number of our core businesses including our mining and dismantling & services activities. They are used at different stages of the lifecycle of a mine, from exploration to rehabilitation, as well as for inspection.",
+      "At the heart of the fab, a semiconductor cluster tool links several vacuum process chambers around a central wafer-handling robot. Etch, deposition and metrology run back to back without ever breaking vacuum, fabricating each chip layer by layer with nanometre precision.",
     soundAmbient: "under",
     container: { position: [0, 2, -5], rotation: [0, -PI / 2, 0], scale: 0.05 },
     models: [

@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import gsap from "gsap";
-import { WORLD, type SlideConfig, type ModelConfig } from "../../config";
+import { WORLD, type SlideConfig, type ModelConfig, type Vec3 } from "../../config";
 import { createRevealLineMaterial } from "../../materials/revealLineMaterial";
 import { loadObjLines } from "../../resources/objLines";
 import { asset } from "@/lib/asset";
@@ -102,6 +102,25 @@ export default class BaseScene {
       }
       return lines;
     });
+  }
+
+  /** Add a procedural BufferGeometry as LineSegments with a reveal material (in-memory; no OBJ fetch). */
+  protected addGeometry(
+    geometry: THREE.BufferGeometry,
+    color: string,
+    reveal: Vec3 = [0, 0, 0],
+    parent?: THREE.Object3D,
+  ): THREE.LineSegments {
+    const material = createRevealLineMaterial(color, reveal);
+    this.materials.push(material);
+    const lines = new THREE.LineSegments(geometry, material);
+    (parent ?? this.container).add(lines);
+    const origin = new THREE.Vector3(reveal[0], reveal[1], reveal[2]);
+    const radius = maxRevealRadius(geometry, origin);
+    const entry: ModelEntry = { material, radius };
+    this.entries.push(entry);
+    this.applyReveal(entry, this.entries.length - 1);
+    return lines;
   }
 
   /** Reveal the model on when active, hide it when inactive. */
