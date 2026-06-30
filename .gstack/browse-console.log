@@ -54,3 +54,50 @@
 [2026-06-30T08:55:15.125Z] [log] [HMR] connected
 [2026-06-30T08:57:07.446Z] [log] [Fast Refresh] rebuilding
 [2026-06-30T08:57:07.458Z] [log] [Fast Refresh] done in 8ms
+[2026-06-30T09:04:35.974Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T09:04:35.980Z] [log] [Fast Refresh] done in 4ms
+[2026-06-30T09:05:31.699Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T09:05:31.700Z] [log] [Fast Refresh] done in 347ms
+[2026-06-30T09:06:28.107Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T09:06:28.454Z] [log] [Fast Refresh] done in 734ms
+[2026-06-30T09:07:24.584Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T09:07:24.936Z] [log] [Fast Refresh] done in 342ms
+[2026-06-30T09:07:30.850Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T09:07:30.850Z] [log] [Fast Refresh] done in 719ms
+[2026-06-30T09:10:54.670Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T09:11:01.793Z] [info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[2026-06-30T09:11:01.802Z] [log] [HMR] connected
+[2026-06-30T09:11:03.232Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:11:03.232Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:11:03.232Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:11:03.233Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:11:03.233Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:11:03.233Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:11:03.233Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:11:03.233Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:13:40.057Z] [info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[2026-06-30T09:13:40.061Z] [log] [HMR] connected
+[2026-06-30T09:13:40.778Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:13:40.778Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:13:40.778Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:13:40.778Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:13:40.779Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:13:40.779Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:13:40.779Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:13:40.779Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
+[2026-06-30T09:15:04.325Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T09:15:04.714Z] [log] [Fast Refresh] done in 762ms
+[2026-06-30T09:15:12.510Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T09:15:12.912Z] [log] [Fast Refresh] done in 780ms
+[2026-06-30T09:15:40.533Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T09:15:45.199Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T09:15:49.848Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T09:15:54.661Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T09:15:59.506Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T09:16:08.269Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T09:16:17.224Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T09:16:26.297Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T09:16:34.826Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T09:16:43.425Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T09:16:52.152Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T09:17:00.880Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=VcUERsTMq42TV3fzpTqjt' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED

@@ -24,7 +24,6 @@ export default class Renderer {
       stencil: false,
       depth: true,
       antialias: false,
-      preserveDrawingBuffer: true, // QA: keep buffer for headless screenshots
     });
     this.instance.sortObjects = true;
     this.instance.setClearColor(0x05070f, 1);

@@ -15,14 +15,11 @@ export function Counter({ current, total }: CounterProps) {
 
   return (
     <div
-      style={{
-        position: "fixed",
-        top: 135,
-        left: "50%",
-        transform: "translateX(-50%)",
-        zIndex: 10,
-        pointerEvents: "none",
-      }}
+      className="
+        fixed z-10 pointer-events-none
+        left-6 bottom-[300px]
+        md:left-[664px] md:top-[135px] md:bottom-auto md:w-[200px]
+      "
     >
       {/* Hachure background box */}
       <div
@@ -34,6 +31,7 @@ export function Counter({ current, total }: CounterProps) {
           padding: "6px 14px",
           height: 50,
           minWidth: 140,
+          width: "100%",
           justifyContent: "center",
         }}
       >

@@ -61,7 +61,7 @@ function OranoLogoMark({ size = 32 }: { size?: number }) {
 
 const labelFont: React.CSSProperties = {
   fontFamily: "var(--font-nunito), system-ui, sans-serif",
-  fontWeight: 200,
+  fontWeight: 100,
   fontSize: 16,
   lineHeight: "40px",
   color: "#ffffff",
@@ -152,10 +152,20 @@ export function Header({ menuOpen, onOpenMenu, onCloseMenu }: HeaderProps) {
               ...labelFont,
               display: "flex",
               alignItems: "center",
-              gap: 6,
+              gap: 12,
             }}
           >
             CLOSE
+            {/* short horizontal connector between CLOSE and ✕ (see menu-open ref) */}
+            <span
+              aria-hidden
+              style={{
+                display: "block",
+                width: 30,
+                height: 1,
+                background: "#ffffff",
+              }}
+            />
             <span style={{ fontSize: 18, lineHeight: 1, marginTop: -1 }}>
               ✕
             </span>

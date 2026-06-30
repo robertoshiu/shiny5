@@ -25,14 +25,14 @@ function MenuRow({ slide, onSelect }: MenuRowProps) {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           gap: 24,
           background: "none",
           border: "none",
           cursor: "pointer",
           padding: "10px 0",
           width: "100%",
-          textAlign: "right",
+          textAlign: "left",
           pointerEvents: "auto",
           outline: "none",
         }}
@@ -79,34 +79,27 @@ export function CircularMenu({ onSelect, onClose }: CircularMenuProps) {
       style={{
         position: "fixed",
         inset: 0,
-        zIndex: 20,
+        zIndex: 40,
         pointerEvents: "auto",
         display: "flex",
         flexDirection: "column",
       }}
     >
-      {/* Dark scrim */}
+      {/* Subtle scrim — lets the blue 3D world show through (click anywhere to close) */}
       <div
         onClick={onClose}
         style={{
           position: "absolute",
           inset: 0,
-          background: "rgba(5,7,15,0.85)",
+          background: "rgba(5,7,15,0.2)",
         }}
       />
 
-      {/* Menu content — right-aligned, vertically centered */}
-      <div
-        style={{
-          position: "relative",
-          flex: 1,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-end",
-          paddingRight: "clamp(40px, 5vw, 90px)",
-        }}
-      >
+      {/* Menu content — sits in the right column (~55% from left, like the slide
+          title), vertically centered. Titles left-align; numbers right-align. */}
+      <div className="relative flex-1 flex items-center justify-start pl-6 md:pl-[55%] pointer-events-none">
         <ul
+          className="w-[calc(100vw-48px)] md:w-[380px]"
           style={{
             listStyle: "none",
             margin: 0,

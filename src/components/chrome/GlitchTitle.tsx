@@ -38,7 +38,7 @@ function GlitchLetter({ char, index }: GlitchLetterProps) {
           position: "absolute",
           top: 0,
           left: 0,
-          color: "#ff003c",
+          color: "#ff0000",
           opacity: 0,
           animation: `chrome-rgb-red-reveal ${DURATION}s ease-out both`,
           animationDelay: delay,

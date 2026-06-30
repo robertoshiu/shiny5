@@ -207,8 +207,9 @@ export function Footer({
 
   return (
     <>
-      {/* Bottom-left: Orano logo */}
+      {/* Bottom-left: Orano logo — desktop only (mobile shows logo in the header) */}
       <div
+        className="max-md:hidden"
         style={{
           ...footerBase,
           left: 50,
@@ -253,7 +254,6 @@ export function Footer({
             pointerEvents: "auto",
             whiteSpace: "nowrap",
           }}
-          className="max-md:hidden"
         >
           Return to Orano.Group
         </a>
