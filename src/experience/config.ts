@@ -44,6 +44,9 @@ export interface SlideConfig {
   models: ModelConfig[];
   /** landscape camera rig states (angles.container offsets) */
   camera: { unfocus: CameraState; focus: CameraState };
+  /** portrait (mobile) camera states — pulled back/recentred for the tall aspect.
+   *  Falls back to `camera` when absent. */
+  cameraPortrait?: { unfocus: CameraState; focus: CameraState };
   /** chromatic-aberration 3D focal dummy (projected to drive uRadialDumping.xy) */
   rgbFocal: Vec3;
   /** explore-mode hotspots: 3D anchor + label */
@@ -129,6 +132,10 @@ export const SLIDES: SlideConfig[] = [
       unfocus: { pos: [0.24, 0.1, -5.8], rot: [0, 3.24, 0], pan: [0.06, 0.04] },
       focus: { pos: [0.236, 0.1587, -5.7221], rot: [-0.2369, 3.666, 0], pan: [0.06, 0.04] },
     },
+    cameraPortrait: {
+      unfocus: { pos: [0.4, 0.2, -6.2], rot: [-0.36, 3.13, 0], pan: [0.06, 0.04] },
+      focus: { pos: [0.4, 0.2, -6.2], rot: [-0.36, 3.13, 0], pan: [0.06, 0.04] },
+    },
     rgbFocal: [0.4, 0.1, -5.3],
     keypoints: [
       { id: "nanopix", anchor: [-0.15, 0.58, -0.05], label: "Due to its small size, the NanoPix is easy to transport" },
@@ -154,6 +161,10 @@ export const SLIDES: SlideConfig[] = [
       unfocus: { pos: [-0.32, 0.12, -5.8], rot: [0, 2.14, 0], pan: [0.06, 0.04] },
       focus: { pos: [-0.264, 0.1487, -5.7221], rot: [0, 2.25, 0], pan: [0.06, 0.04] },
     },
+    cameraPortrait: {
+      unfocus: { pos: [-0.13, 0.114, -5.98], rot: [0, 2.14, 0], pan: [0.06, 0.04] },
+      focus: { pos: [-0.13, 0.114, -5.98], rot: [0, 2.14, 0], pan: [0.06, 0.04] },
+    },
     rgbFocal: [-0.65, 0.13, 54.52],
     keypoints: [
       { id: "tablet1", anchor: [-0.15, 0.2, -0.1], label: "Augmented reality features can be activated within the DIOTAPLAYER interface, overlaying 3D elements on top of your physical environment" },
@@ -177,6 +188,10 @@ export const SLIDES: SlideConfig[] = [
     camera: {
       unfocus: { pos: [0.18, 0.5, -5.8], rot: [-0.25, 3.64, 0], pan: [0.06, 0.04] },
       focus: { pos: [0.6, 0.35, -5.8], rot: [-0.15, 3.7, 0], pan: [0.06, 0.04] },
+    },
+    cameraPortrait: {
+      unfocus: { pos: [-0.23, 0.63, -6.25], rot: [-0.25, 3.64, 0], pan: [0.06, 0.04] },
+      focus: { pos: [-0.23, 0.63, -6.25], rot: [-0.25, 3.64, 0], pan: [0.06, 0.04] },
     },
     rgbFocal: [0.95, 0.2, 115.1],
     keypoints: [
@@ -202,6 +217,10 @@ export const SLIDES: SlideConfig[] = [
     camera: {
       unfocus: { pos: [-0.472, 2.713, -6.2], rot: [-0.55, 3.34, 0], pan: [0.06, 0.04] },
       focus: { pos: [0.872, 2.513, -5.6], rot: [-0.55, 2.34, 0], pan: [0.06, 0.04] },
+    },
+    cameraPortrait: {
+      unfocus: { pos: [-0.2, 2.7, -6.8], rot: [-0.5, 3.18, 0], pan: [0.06, 0.04] },
+      focus: { pos: [-0.2, 2.7, -6.8], rot: [-0.5, 3.18, 0], pan: [0.06, 0.04] },
     },
     rgbFocal: [0, 2, 175.12],
     keypoints: [

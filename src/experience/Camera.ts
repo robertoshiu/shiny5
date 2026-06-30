@@ -17,6 +17,9 @@ export default class Camera {
 
   private experience: Experience;
   private states: Record<string, CameraState> = {};
+  private statesPortrait: Record<string, CameraState> = {};
+  private currentStateName = "protectUnfocus";
+  private wasPortrait = false;
   private panAmplitude: [number, number] = [0, 0];
   private cursor = new THREE.Vector2(0, 0);
   /** Row offset (= index*60) added to every state's Z so the rig follows the
@@ -50,13 +53,23 @@ export default class Camera {
     scene.add(this.angles);
 
     // Register every slide's unfocus/focus states, e.g. "protectUnfocus".
+    // Portrait set falls back to landscape when a slide has no portrait override.
     for (const slide of SLIDES) {
       this.states[`${slide.slug}Unfocus`] = slide.camera.unfocus;
       this.states[`${slide.slug}Focus`] = slide.camera.focus;
+      this.statesPortrait[`${slide.slug}Unfocus`] = slide.cameraPortrait?.unfocus ?? slide.camera.unfocus;
+      this.statesPortrait[`${slide.slug}Focus`] = slide.cameraPortrait?.focus ?? slide.camera.focus;
     }
 
+    this.wasPortrait = this.isPortrait;
     this.setState("protectUnfocus", 0);
     window.addEventListener("mousemove", this.handleMouseMove);
+  }
+
+  /** Tall viewport (phones in portrait) use the portrait camera set + reduced parallax. */
+  private get isPortrait(): boolean {
+    const { sizes } = this.experience;
+    return sizes.height > sizes.width;
   }
 
   /** Move the rig's base Z to the given slide's row (index * WORLD.distanceBetween). */
@@ -65,10 +78,13 @@ export default class Camera {
   }
 
   setState(name: string, duration = 3, ease = "power2.inOut"): void {
-    const state = this.states[name];
+    this.currentStateName = name;
+    const portrait = this.isPortrait;
+    const state = (portrait ? this.statesPortrait[name] : this.states[name]) ?? this.states[name];
     if (!state) return;
 
-    this.panAmplitude = state.pan;
+    const pm = portrait ? 0.25 : 1; // reduced cursor parallax on mobile (SCENE_SPEC §10)
+    this.panAmplitude = [state.pan[0] * pm, state.pan[1] * pm];
     const targetZ = state.pos[2] + this.sceneOffsetZ;
 
     if (duration === 0) {
@@ -107,6 +123,12 @@ export default class Camera {
     const { sizes } = this.experience;
     this.instance.aspect = sizes.width / sizes.height;
     this.instance.updateProjectionMatrix();
+    // On orientation change, re-apply the current state from the matching set.
+    const portrait = this.isPortrait;
+    if (portrait !== this.wasPortrait) {
+      this.wasPortrait = portrait;
+      this.setState(this.currentStateName, 0);
+    }
   }
 
   destroy(): void {
