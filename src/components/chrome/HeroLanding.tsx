@@ -125,7 +125,7 @@ export function HeroLanding({
             position: 'relative',
             zIndex: 1,
             textAlign: 'center',
-            maxWidth: 760,
+            maxWidth: 960,
             width: '100%',
           }}
         >
@@ -145,21 +145,30 @@ export function HeroLanding({
             INTELLIGENT WAFER FAB // SYSTEMS INTEGRATOR
           </p>
 
-          {/* H1 Headline */}
+          {/* H1 Headline — forced to exactly two lines (each line nowrap so it
+              never spills to a third); font scales so both lines fit at any width. */}
           <h1
             style={{
               fontFamily: "'Fraunces', Georgia, serif",
               fontWeight: 900,
-              fontSize: 'clamp(2.6rem, 8vw, 6rem)',
-              lineHeight: 1.08,
+              fontSize: 'clamp(1.2rem, 5.5vw, 3.6rem)',
+              lineHeight: 1.1,
               color: '#ffffff',
               margin: 0,
               marginBottom: 32,
             }}
           >
-            {isZh
-              ? '把設備數據，鍛造成可決策的智能。'
-              : 'Forge equipment data into actionable decisions.'}
+            {isZh ? (
+              <>
+                <span style={{ display: 'block', whiteSpace: 'nowrap' }}>把設備數據，</span>
+                <span style={{ display: 'block', whiteSpace: 'nowrap' }}>鍛造成可決策的智能。</span>
+              </>
+            ) : (
+              <>
+                <span style={{ display: 'block', whiteSpace: 'nowrap' }}>Forge equipment data</span>
+                <span style={{ display: 'block', whiteSpace: 'nowrap' }}>into actionable decisions.</span>
+              </>
+            )}
           </h1>
 
           {/* Chips */}
