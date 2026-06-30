@@ -1,0 +1,54 @@
+[2026-06-30T06:31:16.243Z] [log] {name: prod, url: https://www.orano.group/experience/innovation, analyticsId: UA-118705249-1, platform: Object, scrollType: windows}
+[2026-06-30T06:31:18.271Z] [log] THREE.WebGLRenderer 95
+[2026-06-30T06:31:18.747Z] [timeEnd] OBJLoader: 1.278076171875 ms
+[2026-06-30T06:31:18.748Z] [warning] [.WebGL-0x5b640232a200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[2026-06-30T06:31:18.851Z] [warning] [.WebGL-0x5b640232a200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[2026-06-30T06:31:18.928Z] [warning] [.WebGL-0x5b640232a200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[2026-06-30T06:31:19.061Z] [warning] [.WebGL-0x5b640232a200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+[2026-06-30T06:31:19.287Z] [timeEnd] OBJLoader: 3.14697265625 ms
+[2026-06-30T06:31:20.365Z] [timeEnd] OBJLoader: 116.64111328125 ms
+[2026-06-30T06:31:21.173Z] [warning] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently
+[2026-06-30T06:31:21.779Z] [warning] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently
+[2026-06-30T06:45:59.937Z] [log] experience.camera.transitionStart
+[2026-06-30T06:46:01.645Z] [warning] THREE.WebGLRenderer: image is not power of two (2048x1536). Resized to 2048x1024
+[2026-06-30T06:46:44.703Z] [log] experience.camera.transitionStart
+[2026-06-30T06:46:51.723Z] [log] experience.camera.transitionStart
+[2026-06-30T06:46:59.551Z] [log] experience.camera.transitionStart
+[2026-06-30T06:47:07.889Z] [log] experience.camera.transitionStart
+[2026-06-30T06:50:55.679Z] [log] {name: prod, url: https://www.orano.group/experience/innovation, analyticsId: UA-118705249-1, platform: Object, scrollType: windows}
+[2026-06-30T06:50:55.766Z] [log] THREE.WebGLRenderer 95
+[2026-06-30T06:50:56.455Z] [timeEnd] OBJLoader: 1.4580078125 ms
+[2026-06-30T06:50:56.710Z] [timeEnd] OBJLoader: 3.303955078125 ms
+[2026-06-30T06:50:57.007Z] [timeEnd] OBJLoader: 144.85009765625 ms
+[2026-06-30T06:50:57.118Z] [warning] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently
+[2026-06-30T06:50:57.271Z] [warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[2026-06-30T06:50:57.302Z] [warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[2026-06-30T06:50:57.698Z] [warning] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently
+[2026-06-30T06:50:59.342Z] [error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[2026-06-30T06:51:43.975Z] [log] experience.camera.transitionStart
+[2026-06-30T06:51:45.663Z] [warning] THREE.WebGLRenderer: image is not power of two (2048x1536). Resized to 2048x1024
+[2026-06-30T06:51:53.286Z] [log] experience.camera.transitionStart
+[2026-06-30T06:52:01.987Z] [log] experience.camera.transitionStart
+[2026-06-30T06:53:02.754Z] [log] experience.camera.transitionStart
+[2026-06-30T06:53:10.216Z] [log] experience.camera.transitionStart
+[2026-06-30T06:53:16.839Z] [log] experience.camera.transitionStart
+[2026-06-30T06:54:51.140Z] [log] {name: prod, url: https://www.orano.group/experience/innovation, analyticsId: UA-118705249-1, platform: Object, scrollType: windows}
+[2026-06-30T06:54:51.194Z] [log] THREE.WebGLRenderer 95
+[2026-06-30T06:54:52.179Z] [error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[2026-06-30T06:54:52.179Z] [timeEnd] OBJLoader: 1.409912109375 ms
+[2026-06-30T06:54:52.185Z] [timeEnd] OBJLoader: 2.970947265625 ms
+[2026-06-30T06:54:52.234Z] [timeEnd] OBJLoader: 131.99609375 ms
+[2026-06-30T06:54:52.351Z] [warning] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently
+[2026-06-30T06:54:52.686Z] [warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[2026-06-30T06:54:52.686Z] [warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[2026-06-30T06:54:52.866Z] [warning] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently
+[2026-06-30T06:55:04.559Z] [log] {name: prod, url: https://www.orano.group/experience/innovation, analyticsId: UA-118705249-1, platform: Object, scrollType: windows}
+[2026-06-30T06:55:04.617Z] [log] THREE.WebGLRenderer 95
+[2026-06-30T06:55:05.137Z] [error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[2026-06-30T06:55:05.153Z] [timeEnd] OBJLoader: 1.18798828125 ms
+[2026-06-30T06:55:05.487Z] [timeEnd] OBJLoader: 3.076171875 ms
+[2026-06-30T06:55:05.733Z] [timeEnd] OBJLoader: 129.93798828125 ms
+[2026-06-30T06:55:05.817Z] [warning] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently
+[2026-06-30T06:55:06.099Z] [warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[2026-06-30T06:55:06.099Z] [warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[2026-06-30T06:55:06.439Z] [warning] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently

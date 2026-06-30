@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   Orano "Innovation Slider" clone — design tokens (from app.css reverse-eng)
+---------------------------------------------------------------------------- */
+:root {
+  --bg: #05070f;            /* renderer clear color / page background */
+  --accent: #ffe600;        /* Orano yellow */
+  --accent-rgb: 255 230 0;
+  --white: #ffffff;
+  --text-muted: #cfcfcf;
+  --text-dim: #8e8e8e;
+  --glitch-red: #ff003c;
+  --glitch-green: #0aff15;
+  --scrim: rgba(5, 7, 15, 0.65);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-accent: var(--accent);
+  --color-white: var(--white);
+  --color-muted: var(--text-muted);
+  --color-dim: var(--text-dim);
+  --font-display: var(--font-blender), "Arial Narrow", sans-serif;
+  --font-body: var(--font-nunito), system-ui, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  overflow: hidden;            /* full-screen experience, no page scroll */
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Blender Pro is a wide technical display face; emulate its tracking defaults */
+.font-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+
+/* Hide native scrollbars inside any internal scrollers */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
