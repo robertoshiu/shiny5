@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { WORLD, type SlideConfig, type ModelConfig } from "../../config";
 import { createRevealLineMaterial } from "../../materials/revealLineMaterial";
 import { loadObjLines } from "../../resources/objLines";
+import { asset } from "@/lib/asset";
 import Terrain from "../Terrain";
 
 /** Largest distance from `origin` to any vertex — the model's reveal radius. */
@@ -87,7 +88,7 @@ export default class BaseScene {
     const material = createRevealLineMaterial(model.color, reveal);
     this.materials.push(material);
 
-    return loadObjLines(`/assets/models/${model.file}.obj`, material).then((lines) => {
+    return loadObjLines(asset(`/assets/models/${model.file}.obj`), material).then((lines) => {
       (parent ?? this.container).add(lines);
 
       const origin = new THREE.Vector3(reveal[0], reveal[1], reveal[2]);

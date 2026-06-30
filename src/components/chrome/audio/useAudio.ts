@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Howl } from "howler";
 import { AUDIO } from "@/experience/config";
+import { asset } from "@/lib/asset";
 
 type AudioKey = keyof typeof AUDIO;
 
@@ -30,7 +31,7 @@ export function useAudio(): AudioManager {
       (Object.keys(AUDIO) as AudioKey[]).forEach((key) => {
         const cfg = AUDIO[key];
         howlsRef.current[key] = new HowlCtor({
-          src: [cfg.file],
+          src: [asset(cfg.file)],
           loop: cfg.loop,
           volume: 0,
           html5: true,

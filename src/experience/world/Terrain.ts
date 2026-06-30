@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import gsap from "gsap";
 import { TERRAIN, type Vec3 } from "../config";
+import { asset } from "@/lib/asset";
 import { createTerrainMaterial } from "../materials/terrainMaterial";
 
 /**
@@ -87,7 +88,7 @@ export default class Terrain {
     scene: THREE.Scene,
     options: { zOffset?: number; focusPosition?: Vec3 } = {},
   ) {
-    this.texture = new THREE.TextureLoader().load(TERRAIN.texture);
+    this.texture = new THREE.TextureLoader().load(asset(TERRAIN.texture));
     this.texture.colorSpace = THREE.NoColorSpace; // r/g are data, not color
     this.material = createTerrainMaterial(this.texture);
     if (options.focusPosition) {

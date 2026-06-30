@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { SLIDES } from "../../config";
+import { asset } from "@/lib/asset";
 import BaseScene from "./BaseScene";
 
 /**
@@ -42,7 +43,7 @@ export default class ValidateScene extends BaseScene {
     const normal = axes[0].axis;
 
     const plane = new THREE.PlaneGeometry(axes[2].extent * 0.86, axes[1].extent * 0.86);
-    const texture = new THREE.TextureLoader().load("/assets/images/validate-tablet-screen-1.png");
+    const texture = new THREE.TextureLoader().load(asset("/assets/images/validate-tablet-screen-1.png"));
     texture.colorSpace = THREE.SRGBColorSpace;
 
     const material = new THREE.MeshBasicMaterial({
