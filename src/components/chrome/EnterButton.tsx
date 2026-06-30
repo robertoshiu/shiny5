@@ -2,17 +2,28 @@
 
 import { useState } from "react";
 
+type Lang = "中" | "EN";
+
 interface EnterButtonProps {
-  onClick: () => void;
+  focused: boolean;
+  onToggle: () => void;
+  onHover?: () => void;
+  lang: Lang;
 }
 
-export function EnterButton({ onClick }: EnterButtonProps) {
+export function EnterButton({ focused, onToggle, onHover, lang }: EnterButtonProps) {
   const [hovered, setHovered] = useState(false);
+
+  const label = focused
+    ? lang === "中" ? "返回" : "BACK"
+    : lang === "中" ? "近觀" : "INSPECT";
+
+  const ariaLabel = focused ? "Return from inspect" : "Inspect model";
 
   return (
     <button
-      onClick={onClick}
-      onMouseEnter={() => setHovered(true)}
+      onClick={onToggle}
+      onMouseEnter={() => { setHovered(true); onHover?.(); }}
       onMouseLeave={() => setHovered(false)}
       style={{
         display: "flex",
@@ -28,7 +39,7 @@ export function EnterButton({ onClick }: EnterButtonProps) {
         transition: "transform 0.2s ease",
         outline: "none",
       }}
-      aria-label="Enter experience"
+      aria-label={ariaLabel}
     >
       {/* Yellow left accent bar */}
       <span
@@ -62,7 +73,7 @@ export function EnterButton({ onClick }: EnterButtonProps) {
             color: "#05070f",
           }}
         >
-          ENTER
+          {label}
         </span>
       </span>
     </button>

@@ -1,11 +1,15 @@
 "use client";
 
-import { HEADER_LABEL, MENU_LABEL } from "@/experience/config";
+import { Logo } from "./Logo";
 
 interface HeaderProps {
   menuOpen: boolean;
   onOpenMenu: () => void;
   onCloseMenu: () => void;
+  headerLabel: string;
+  menuLabel: string;
+  /** Hide the top-left tagline/logo (e.g. while the inspect panel is open on the left). */
+  hideLabel?: boolean;
 }
 
 function HamburgerIcon() {
@@ -24,41 +28,6 @@ function HamburgerIcon() {
   );
 }
 
-/** Small Orano orbital mark SVG (mobile header logo) */
-function OranoLogoMark({ size = 32 }: { size?: number }) {
-  const r = size / 2;
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox={`0 0 ${size} ${size}`}
-      fill="none"
-      aria-hidden="true"
-    >
-      <circle cx={r} cy={r} r={r - 1.5} stroke="white" strokeWidth="1.4" />
-      <ellipse
-        cx={r}
-        cy={r}
-        rx={r - 1.5}
-        ry={(r - 1.5) * 0.36}
-        stroke="white"
-        strokeWidth="1.1"
-        transform={`rotate(-35 ${r} ${r})`}
-      />
-      <ellipse
-        cx={r}
-        cy={r}
-        rx={r - 1.5}
-        ry={(r - 1.5) * 0.36}
-        stroke="white"
-        strokeWidth="1.1"
-        transform={`rotate(35 ${r} ${r})`}
-      />
-      <circle cx={r} cy={r} r="2" fill="white" />
-    </svg>
-  );
-}
-
 const labelFont: React.CSSProperties = {
   fontFamily: "var(--font-nunito), system-ui, sans-serif",
   fontWeight: 100,
@@ -70,58 +39,62 @@ const labelFont: React.CSSProperties = {
   whiteSpace: "nowrap",
 };
 
-export function Header({ menuOpen, onOpenMenu, onCloseMenu }: HeaderProps) {
+export function Header({ menuOpen, onOpenMenu, onCloseMenu, headerLabel, menuLabel, hideLabel = false }: HeaderProps) {
   return (
     <>
       {/* ---- Top-left: yellow tick + label  (desktop only) ---- */}
-      <div
-        className="hidden md:flex items-center"
-        style={{
-          position: "fixed",
-          top: 35,
-          left: 55,
-          gap: 12,
-          pointerEvents: "none",
-          zIndex: 10,
-        }}
-      >
-        <span
+      {!hideLabel && (
+        <div
+          className="hidden md:flex items-center"
           style={{
-            display: "block",
-            width: 3,
-            height: 18,
-            background: "#ffe600",
-            flexShrink: 0,
-          }}
-        />
-        <span style={labelFont}>{HEADER_LABEL}</span>
-      </div>
-
-      {/* ---- Top-left: Orano logo  (mobile only) ---- */}
-      <div
-        className="flex md:hidden items-center"
-        style={{
-          position: "fixed",
-          top: 24,
-          left: 24,
-          gap: 8,
-          pointerEvents: "none",
-          zIndex: 10,
-        }}
-      >
-        <OranoLogoMark size={28} />
-        <span
-          style={{
-            fontFamily: "var(--font-nunito), system-ui, sans-serif",
-            fontWeight: 300,
-            fontSize: 13,
-            letterSpacing: "0.05em",
-            color: "#ffffff",
+            position: "fixed",
+            top: 35,
+            left: 55,
+            gap: 12,
+            pointerEvents: "none",
+            zIndex: 10,
           }}
         >
-          ShinyLogic
-        </span>
-      </div>
+          <span
+            style={{
+              display: "block",
+              width: 3,
+              height: 18,
+              background: "#ffe600",
+              flexShrink: 0,
+            }}
+          />
+          <span style={labelFont}>{headerLabel}</span>
+        </div>
+      )}
+
+      {/* ---- Top-left: Orano logo  (mobile only) ---- */}
+      {!hideLabel && (
+        <div
+          className="flex md:hidden items-center"
+          style={{
+            position: "fixed",
+            top: 24,
+            left: 24,
+            gap: 8,
+            pointerEvents: "none",
+            zIndex: 10,
+          }}
+        >
+          <Logo size={26} />
+          <span
+            style={{
+              fontFamily: "var(--font-nunito), system-ui, sans-serif",
+              fontWeight: 300,
+              fontSize: 13,
+              letterSpacing: "0.05em",
+              color: "#ffffff",
+            }}
+          >
+            顯藝科技 ShinyLogic
+          </span>
+        </div>
+      )}
 
       {/* ---- Top-right: menu trigger ---- */}
       <div
@@ -142,7 +115,7 @@ export function Header({ menuOpen, onOpenMenu, onCloseMenu }: HeaderProps) {
         {/* "LIVE THE EXPERIENCES" label — desktop only, hidden when menu open */}
         {!menuOpen && (
           <span style={labelFont} className="hidden md:inline">
-            {MENU_LABEL}
+            {menuLabel}
           </span>
         )}
 

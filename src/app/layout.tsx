@@ -23,16 +23,16 @@ const nunitoSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ShinyLogic — Innovation is part of our DNA",
+  title: "顯藝科技 ShinyLogic — 智能晶圓廠 IT/OT 全棧建置",
   description:
-    "Live the experiences: PATTERN, DEPOSIT, DIFFUSE, FABRICATE — ShinyLogic semiconductor fab.",
+    "顯藝科技 ShinyLogic — 為晶圓廠交付並承擔 IT/OT+AI 全棧的建置、整合與維運責任。完整六層技術堆疊，從設備數據到 AI 決策閉環，100% 歸檔回您。",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${blenderPro.variable} ${nunitoSans.variable}`}>
+    <html lang="zh-Hant" className={`${blenderPro.variable} ${nunitoSans.variable}`}>
       <body>{children}</body>
     </html>
   );

@@ -1,7 +1,7 @@
 /**
- * Shared scene/UI contract for the ShinyLogic "Innovation Slider".
- * Originally reverse-engineered from the Orano experience (see docs/research),
- * re-themed as a semiconductor fab: each slide shows a different process tool.
+ * Shared scene/UI contract for the ShinyLogic (顯藝科技) wafer-fab site.
+ * The deck mirrors the site's seven pages — Home, About, Solutions, Technology,
+ * Methodology, Careers, Contact — each a bilingual page-slide (EN glitch verb + ZH copy).
  * Consumed by BOTH the WebGL track (src/experience/**) and the DOM chrome (src/components/**).
  *
  * Coordinate units are Three.js units. Colors are hex.
@@ -42,12 +42,16 @@ export interface EquipmentConfig {
 }
 
 export interface SlideConfig {
-  index: number; // 0..3
-  slug: "protect" | "validate" | "training" | "investigate";
+  index: number; // 0..6
+  slug: "home" | "about" | "solutions" | "technology" | "methodology" | "careers" | "contact";
   /** big glitch verb title */
   title: string;
+  /** English kicker / section label shown as a small mono line (bilingual deck) */
+  kicker: string;
   /** intro copy */
   description: string;
+  /** English description (for the EN language toggle) */
+  descriptionEn: string;
   /** crossfading ambient track key while on this slide */
   soundAmbient: "under";
   /** container transform that holds the slide's equipment + topography */
@@ -138,57 +142,119 @@ const focal = (i: number): Vec3 => [0, 2, i * 60 - 5]; // equipment world Z per 
 export const SLIDES: SlideConfig[] = [
   {
     index: 0,
-    slug: "protect",
-    title: "Pattern",
+    slug: "home",
+    title: "Forge",
+    kicker: "01 — HOME // INTELLIGENT WAFER FAB",
     description:
-      "The scanner projects each circuit layer onto the wafer, exposing features only nanometres wide. Every layer of the chip starts here, aligned to the one beneath it with sub-nanometre overlay.",
+      "從 8 大工藝機台的訊號，到 AI 決策閉環，再到跨區域異地備援——顯藝科技為您的晶圓廠交付並承擔 IT/OT+AI 全棧的建置、整合與維運責任，完整六層技術堆疊 100% 歸檔回您。",
+    descriptionEn:
+      "From signals across 8 process tool types, to AI decision loops, to cross-region disaster recovery — ShinyLogic delivers and owns the full IT/OT+AI stack build, integration, and operations for your fab. Complete six-layer stack, 100% archived back to you.",
     soundAmbient: "under",
     container: CONTAINER,
-    equipment: { file: "litho_scanner", thresholdAngle: 44 },
+    equipment: { file: "cluster_tool", thresholdAngle: 35 },
     camera: CAMERA,
     cameraPortrait: CAMERA_PORTRAIT,
     rgbFocal: focal(0),
   },
   {
     index: 1,
-    slug: "validate",
-    title: "Deposit",
+    slug: "about",
+    title: "Define",
+    kicker: "02 — ABOUT // WHO WE ARE",
     description:
-      "Chemical vapour deposition grows atom-thin films across the wafer — conductors, insulators and barriers stacked layer upon layer to build each transistor in three dimensions.",
+      "顯藝科技為晶圓廠直接交付 IT/OT+AI 全棧技術棧——從 L1 設備訊號到 L6 備援層，以明確 SLA 承擔建置、整合與維運全程責任，並交還 100% 歸檔的跨廠範本。",
+    descriptionEn:
+      "ShinyLogic delivers the IT/OT+AI full-stack directly to your fab — from L1 equipment signals to L6 resilience, with clear SLA ownership across build, integration, and operations, returning a 100%-archived cross-fab template.",
     soundAmbient: "under",
     container: CONTAINER,
-    equipment: { file: "thinfilm_cvd", thresholdAngle: 38 },
+    equipment: { file: "litho_scanner", thresholdAngle: 44 },
     camera: CAMERA,
     cameraPortrait: CAMERA_PORTRAIT,
     rgbFocal: focal(1),
   },
   {
     index: 2,
-    slug: "training",
-    title: "Diffuse",
+    slug: "solutions",
+    title: "Resolve",
+    kicker: "03 — SOLUTIONS // SIX-LAYER STACK",
     description:
-      "Inside the furnace, wafers are heated past a thousand degrees so dopant atoms diffuse into the silicon lattice, setting precisely where and how current will flow.",
+      "六層架構不只是技術分層——它是六個明確的解題框架。從設備訊號採集、到 AI 決策閉環、再到跨區域業務連續性，每一層承擔具體的業務問題、定義可衡量的交付範圍，並以合約 SLA 為後盾。",
+    descriptionEn:
+      "The six-layer stack is not just a technical taxonomy — it is six explicit problem-solving frameworks. From equipment signal ingestion to AI decision loops to cross-region business continuity, each layer owns a concrete business problem, defines a measurable delivery scope, and is backed by contractual SLAs.",
     soundAmbient: "under",
     container: CONTAINER,
-    equipment: { file: "diffusion_furnace", thresholdAngle: 28 },
+    equipment: { file: "thinfilm_cvd", thresholdAngle: 38 },
     camera: CAMERA,
     cameraPortrait: CAMERA_PORTRAIT,
     rgbFocal: focal(2),
   },
   {
     index: 3,
-    slug: "investigate",
-    title: "Fabricate",
+    slug: "technology",
+    title: "Compute",
+    kicker: "04 — TECHNOLOGY // ENGINEERING DEEP-DIVE",
     description:
-      "At the heart of the fab, a cluster tool links several vacuum process chambers around a central wafer-handling robot. Etch, deposition and metrology run back to back without ever breaking vacuum, fabricating each chip layer by layer with nanometre precision.",
+      "從 NVIDIA Blackwell Ultra 算力底座、高量產 MES 平台（FAB300）七模組，到 OT/IT 雙域安全架構與 RTO ≤ 4hr 異地備援——每一層技術均有規格、合規與合約為後盾。",
+    descriptionEn:
+      "From the NVIDIA Blackwell Ultra compute base and HVM MES Platform (FAB300) seven modules, to OT/IT dual-domain security and RTO <= 4hr resilience — every layer is backed by specifications, compliance, and contract.",
     soundAmbient: "under",
     container: CONTAINER,
-    equipment: { file: "cluster_tool", thresholdAngle: 35 },
+    equipment: { file: "diffusion_furnace", thresholdAngle: 28 },
     camera: CAMERA,
     cameraPortrait: CAMERA_PORTRAIT,
     rgbFocal: focal(3),
   },
+  {
+    index: 4,
+    slug: "methodology",
+    title: "Deliver",
+    kicker: "05 — METHODOLOGY // FAB300 REFERENCE",
+    description:
+      "以高量產 MES 平台（FAB300）為核心、NVIDIA GB300 NVL72 AI Fabric 為算力底座——顯藝科技直接為您的晶圓廠交付並承擔 IT/OT+AI 全棧整合責任，100% 方法論歸檔交回，可直接複製至下一座晶圓廠。",
+    descriptionEn:
+      "Built on the high-volume MES platform (FAB300) and NVIDIA GB300 NVL72 AI Fabric compute — ShinyLogic delivers directly to your fab and owns full IT/OT+AI integration end-to-end. 100% methodology archived and handed back, ready to replicate to the next fab.",
+    soundAmbient: "under",
+    container: CONTAINER,
+    equipment: { file: "wafer_processor", thresholdAngle: 52 },
+    camera: CAMERA,
+    cameraPortrait: CAMERA_PORTRAIT,
+    rgbFocal: focal(4),
+  },
+  {
+    index: 5,
+    slug: "careers",
+    title: "Join",
+    kicker: "06 — CAREERS // JOIN THE BUILD",
+    description:
+      "顯藝科技正以四階段節奏組建 IT 智能部，從建廠到量產，每一位工程師都在真實的前沿場景中擔任授權角色——不是執行清單，而是拿責任、驅動決策。",
+    descriptionEn:
+      "ShinyLogic is assembling the IT Intelligence Dept across four build phases — from site construction to high-volume manufacturing. Every engineer holds an authorized role in a real frontier environment: not a task list, but ownership and decisions that matter.",
+    soundAmbient: "under",
+    container: CONTAINER,
+    equipment: { file: "robot_arm", thresholdAngle: 40 },
+    camera: CAMERA,
+    cameraPortrait: CAMERA_PORTRAIT,
+    rgbFocal: focal(5),
+  },
+  {
+    index: 6,
+    slug: "contact",
+    title: "Engage",
+    kicker: "07 — CONTACT // ENGAGE",
+    description:
+      "顯藝科技直接為您的晶圓廠交付並承擔 IT/OT+AI 全棧的建置、整合與維運責任，並交還 100% 歸檔的跨廠範本。預約建置規劃諮詢、技術評估或招募對話：hello@shinylogic.tech。",
+    descriptionEn:
+      "ShinyLogic delivers and owns the full IT/OT+AI stack build, integration, and operations for your fab — and hands back 100%-archived cross-fab templates. For build planning, technical advisory, vendor coordination, or recruitment: hello@shinylogic.tech.",
+    soundAmbient: "under",
+    container: CONTAINER,
+    equipment: { file: "vacuum_chamber", thresholdAngle: 60, targetSize: 12 },
+    camera: CAMERA,
+    cameraPortrait: CAMERA_PORTRAIT,
+    rgbFocal: focal(6),
+  },
 ];
 
-export const HEADER_LABEL = "Innovation is part of our DNA";
-export const MENU_LABEL = "Live the experiences";
+export const HEADER_LABEL = "把設備數據，鍛造成可決策的智能";
+export const MENU_LABEL = "探索六層全棧";
+export const HEADER_LABEL_EN = "Forging equipment data into decision-grade intelligence";
+export const MENU_LABEL_EN = "Explore the stack";

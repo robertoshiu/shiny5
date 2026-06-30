@@ -33,8 +33,8 @@ export function useAudio(): AudioManager {
         howlsRef.current[key] = new HowlCtor({
           src: [asset(cfg.file)],
           loop: cfg.loop,
-          volume: 0,
-          html5: true,
+          volume: cfg.volume,
+          html5: cfg.loop,
         });
       });
 

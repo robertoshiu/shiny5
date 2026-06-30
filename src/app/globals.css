@@ -22,7 +22,7 @@
   --color-muted: var(--text-muted);
   --color-dim: var(--text-dim);
   --font-display: var(--font-blender), "Arial Narrow", sans-serif;
-  --font-body: var(--font-nunito), system-ui, sans-serif;
+  --font-body: var(--font-nunito), system-ui, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
 }
 
 html,
@@ -106,3 +106,28 @@ body {
 }
 
 /* === end chrome === */
+
+/* ─── Hero fonts (ported from shiny4) ────────────────────────────────────── */
+@font-face {
+  font-family: "Fraunces";
+  src: url(/fonts/fraunces-latin.woff2) format('woff2');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src: url(/fonts/nunito-sans-latin.woff2) format('woff2');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Spline Sans Mono";
+  src: url(/fonts/spline-sans-mono-latin.woff2) format('woff2');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}

@@ -1,54 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import { Logo } from "./Logo";
 
-// ---- Orano logo (orbital mark + wordmark) ----
-function OranoLogo() {
+type Lang = "中" | "EN";
+
+// ---- ShinyLogic logo lockup (leaf mark + wordmark) ----
+interface OranoLogoProps {
+  onReturnHome: () => void;
+}
+
+function OranoLogo({ onReturnHome }: OranoLogoProps) {
   return (
-    <a
-      href="https://shinylogic.com"
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
+      onClick={onReturnHome}
       style={{
         display: "flex",
         alignItems: "center",
         gap: 10,
         textDecoration: "none",
         pointerEvents: "auto",
+        background: "none",
+        border: "none",
+        cursor: "pointer",
+        padding: 0,
       }}
-      aria-label="ShinyLogic – open in new tab"
+      aria-label="Return to ShinyLogic"
     >
-      {/* Orbital mark */}
-      <svg
-        width="36"
-        height="36"
-        viewBox="0 0 36 36"
-        fill="none"
-        aria-hidden="true"
-      >
-        <circle cx="18" cy="18" r="15.5" stroke="white" strokeWidth="1.4" />
-        <ellipse
-          cx="18"
-          cy="18"
-          rx="15.5"
-          ry="5.8"
-          stroke="white"
-          strokeWidth="1.1"
-          transform="rotate(-35 18 18)"
-        />
-        <ellipse
-          cx="18"
-          cy="18"
-          rx="15.5"
-          ry="5.8"
-          stroke="white"
-          strokeWidth="1.1"
-          transform="rotate(35 18 18)"
-        />
-        <circle cx="18" cy="18" r="2.2" fill="white" />
-      </svg>
+      <Logo size={24} />
 
-      {/* "ShinyLogic" wordmark */}
+      {/* "顯藝科技 ShinyLogic" wordmark */}
       <span
         style={{
           fontFamily: "var(--font-nunito), system-ui, sans-serif",
@@ -58,16 +39,19 @@ function OranoLogo() {
           color: "#ffffff",
         }}
       >
-        ShinyLogic
+        顯藝科技 ShinyLogic
       </span>
-    </a>
+    </button>
   );
 }
 
 // ---- Language toggle ----
-function LangToggle() {
-  const [lang, setLang] = useState<"EN" | "FR">("EN");
+interface LangToggleProps {
+  lang: Lang;
+  onLangChange: (l: Lang) => void;
+}
 
+function LangToggle({ lang, onLangChange }: LangToggleProps) {
   const btnStyle = (active: boolean): React.CSSProperties => ({
     fontFamily: "var(--font-blender), 'Arial Narrow', sans-serif",
     fontWeight: 500,
@@ -86,7 +70,7 @@ function LangToggle() {
     <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
       <button
         style={btnStyle(lang === "EN")}
-        onClick={() => setLang("EN")}
+        onClick={() => onLangChange("EN")}
         aria-label="Switch to English"
       >
         EN
@@ -107,12 +91,12 @@ function LangToggle() {
       </button>
       <span style={{ color: "#6b6b6b", fontSize: 11 }}>/</span>
       <button
-        style={btnStyle(lang === "FR")}
-        onClick={() => setLang("FR")}
-        aria-label="Switch to French"
+        style={btnStyle(lang === "中")}
+        onClick={() => onLangChange("中")}
+        aria-label="Switch to Chinese"
       >
-        FR
-        {lang === "FR" && (
+        中
+        {lang === "中" && (
           <span
             style={{
               position: "absolute",
@@ -183,11 +167,17 @@ function SoundToggle({ on, onToggle }: SoundToggleProps) {
 interface FooterProps {
   soundOn?: boolean;
   onSoundToggle?: () => void;
+  lang: Lang;
+  onLangChange: (l: Lang) => void;
+  onReturnHome: () => void;
 }
 
 export function Footer({
   soundOn: soundOnProp,
   onSoundToggle: onSoundToggleProp,
+  lang,
+  onLangChange,
+  onReturnHome,
 }: FooterProps) {
   const [internalSoundOn, setInternalSoundOn] = useState(false);
 
@@ -216,7 +206,7 @@ export function Footer({
           pointerEvents: "auto",
         }}
       >
-        <OranoLogo />
+        <OranoLogo onReturnHome={onReturnHome} />
       </div>
 
       {/* Bottom-right cluster: lang / sound / return */}
@@ -232,16 +222,14 @@ export function Footer({
         }}
       >
         {/* Lang toggle */}
-        <LangToggle />
+        <LangToggle lang={lang} onLangChange={onLangChange} />
 
         {/* Sound waveform toggle */}
         <SoundToggle on={soundOn} onToggle={handleSoundToggle} />
 
-        {/* Return link — hidden on mobile */}
-        <a
-          href="https://shinylogic.com"
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* Return button — hidden on mobile */}
+        <button
+          onClick={onReturnHome}
           style={{
             fontFamily: "var(--font-blender), 'Arial Narrow', sans-serif",
             fontWeight: 500,
@@ -252,10 +240,14 @@ export function Footer({
             textTransform: "uppercase",
             pointerEvents: "auto",
             whiteSpace: "nowrap",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
           }}
         >
           Return to ShinyLogic
-        </a>
+        </button>
       </div>
     </>
   );

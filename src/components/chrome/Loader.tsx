@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { Logo } from "./Logo";
 
 interface LoaderProps {
   progress: number; // 0..1
@@ -31,6 +32,9 @@ export function Loader({ progress, onDone }: LoaderProps) {
         pointerEvents: "all",
       }}
     >
+      {/* Leaf logo mark */}
+      <Logo size={48} />
+
       {/* SHINYLOGIC glitch heading */}
       <div
         style={{
@@ -42,7 +46,8 @@ export function Loader({ progress, onDone }: LoaderProps) {
           textTransform: "uppercase",
           color: "#ffffff",
           animation: "chrome-loader-glow 2s ease-in-out infinite",
-          marginBottom: 48,
+          marginTop: 16,
+          marginBottom: 8,
         }}
       >
         {/* Red chromatic layer */}
@@ -75,6 +80,21 @@ export function Loader({ progress, onDone }: LoaderProps) {
         </span>
         SHINYLOGIC
       </div>
+
+      {/* CJK subtitle */}
+      <p
+        style={{
+          fontFamily: "var(--font-nunito), system-ui, sans-serif",
+          fontWeight: 200,
+          fontSize: 13,
+          letterSpacing: "0.2em",
+          color: "#8e8e8e",
+          margin: 0,
+          marginBottom: 32,
+        }}
+      >
+        顯藝科技
+      </p>
 
       {/* Progress track */}
       <div
@@ -112,7 +132,7 @@ export function Loader({ progress, onDone }: LoaderProps) {
           textTransform: "uppercase",
         }}
       >
-        Loading, please turn on your volume
+        載入中，請開啟聲音 · Loading, please turn on your volume
       </p>
     </div>
   );

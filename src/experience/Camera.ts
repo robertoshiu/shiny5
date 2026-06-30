@@ -8,7 +8,7 @@ import { SLIDES, WORLD, type CameraState } from "./config";
  *   angles.container (Group, keyframed state) -> pan.container (Group, cursor
  *   parallax) -> instance (PerspectiveCamera).
  * `setState` tweens the angles container's position + rotation with GSAP.
- * States are read from SLIDES[i].camera (unfocus/focus). Starts at protectUnfocus.
+ * States are read from SLIDES[i].camera (unfocus/focus). Starts at the first slide's unfocus state.
  */
 export default class Camera {
   instance: THREE.PerspectiveCamera;
@@ -18,7 +18,7 @@ export default class Camera {
   private experience: Experience;
   private states: Record<string, CameraState> = {};
   private statesPortrait: Record<string, CameraState> = {};
-  private currentStateName = "protectUnfocus";
+  private currentStateName = `${SLIDES[0].slug}Unfocus`;
   private wasPortrait = false;
   private panAmplitude: [number, number] = [0, 0];
   private cursor = new THREE.Vector2(0, 0);
@@ -62,7 +62,7 @@ export default class Camera {
     }
 
     this.wasPortrait = this.isPortrait;
-    this.setState("protectUnfocus", 0);
+    this.setState(`${SLIDES[0].slug}Unfocus`, 0);
     window.addEventListener("mousemove", this.handleMouseMove);
   }
 
