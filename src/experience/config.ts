@@ -72,7 +72,7 @@ export const TERRAIN = {
   color: COLORS.grey12, // uColor (0.12)
   focusColor: COLORS.accent, // uFocusColor (1,0.9,0)
   elevationNoiseMultiplier: 0.07,
-  focusMultiplier: 3,
+  focusMultiplier: 0.25, // tamed: 3 over-saturated the focal row into a hard yellow line
 } as const;
 
 /** Post-processing constants (SCENE_SPEC §6). */
@@ -121,7 +121,9 @@ export const SLIDES: SlideConfig[] = [
     models: [
       { file: "rover", color: COLORS.grey18, role: "env", reveal: [0, 0.25, 0.68] },
       { file: "nanopix", color: COLORS.accent, role: "highlight", reveal: [0, 0.92, -0.19] },
-      { file: "factory", color: COLORS.black, role: "silhouette" },
+      // faint grey, not pure black: additive blending made #000 invisible, but the
+      // reference shows faint background factory/tower structures.
+      { file: "factory", color: "#161616", role: "silhouette" },
     ],
     camera: {
       unfocus: { pos: [0.24, 0.1, -5.8], rot: [0, 3.24, 0], pan: [0.06, 0.04] },
@@ -144,8 +146,9 @@ export const SLIDES: SlideConfig[] = [
     models: [
       { file: "factory-room", color: COLORS.grey10, role: "env" },
       { file: "tank", color: COLORS.grey14, role: "env" },
-      // highlight here is a textured AR screen plane (validate-tablet-screen-1.png), built in code; tablet body is grey
-      { file: "tablet", color: COLORS.grey18, role: "highlight", reveal: [1.24, 0.15, -3.12] },
+      // tablet body is the yellow highlight (matches the reference's yellow tablet frame);
+      // the AR screen texture plane is added on top in ValidateScene.
+      { file: "tablet", color: COLORS.accent, role: "highlight", reveal: [1.24, 0.15, -3.12] },
     ],
     camera: {
       unfocus: { pos: [-0.32, 0.12, -5.8], rot: [0, 2.14, 0], pan: [0.06, 0.04] },
