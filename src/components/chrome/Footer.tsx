@@ -6,7 +6,7 @@ import { useState } from "react";
 function OranoLogo() {
   return (
     <a
-      href="https://orano.group"
+      href="https://shinylogic.com"
       target="_blank"
       rel="noopener noreferrer"
       style={{
@@ -16,7 +16,7 @@ function OranoLogo() {
         textDecoration: "none",
         pointerEvents: "auto",
       }}
-      aria-label="Orano Group – open in new tab"
+      aria-label="ShinyLogic – open in new tab"
     >
       {/* Orbital mark */}
       <svg
@@ -48,18 +48,17 @@ function OranoLogo() {
         <circle cx="18" cy="18" r="2.2" fill="white" />
       </svg>
 
-      {/* "orano" wordmark */}
+      {/* "ShinyLogic" wordmark */}
       <span
         style={{
           fontFamily: "var(--font-nunito), system-ui, sans-serif",
           fontWeight: 300,
-          fontSize: 18,
-          letterSpacing: "0.12em",
+          fontSize: 13,
+          letterSpacing: "0.06em",
           color: "#ffffff",
-          textTransform: "lowercase",
         }}
       >
-        orano
+        ShinyLogic
       </span>
     </a>
   );
@@ -240,7 +239,7 @@ export function Footer({
 
         {/* Return link — hidden on mobile */}
         <a
-          href="https://orano.group"
+          href="https://shinylogic.com"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -255,7 +254,7 @@ export function Footer({
             whiteSpace: "nowrap",
           }}
         >
-          Return to Orano.Group
+          Return to ShinyLogic
         </a>
       </div>
     </>

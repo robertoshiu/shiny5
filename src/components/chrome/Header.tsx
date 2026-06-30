@@ -114,12 +114,12 @@ export function Header({ menuOpen, onOpenMenu, onCloseMenu }: HeaderProps) {
           style={{
             fontFamily: "var(--font-nunito), system-ui, sans-serif",
             fontWeight: 300,
-            fontSize: 16,
-            letterSpacing: "0.1em",
+            fontSize: 13,
+            letterSpacing: "0.05em",
             color: "#ffffff",
           }}
         >
-          orano
+          ShinyLogic
         </span>
       </div>
 

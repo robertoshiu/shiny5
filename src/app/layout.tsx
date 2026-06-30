@@ -23,9 +23,9 @@ const nunitoSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Orano — Innovation is part of our DNA",
+  title: "ShinyLogic — Innovation is part of our DNA",
   description:
-    "Live the experiences: PROTECT, VALIDATE, TRAINING, INVESTIGATE — Orano innovation slider.",
+    "Live the experiences: PATTERN, DEPOSIT, DIFFUSE, FABRICATE — ShinyLogic semiconductor fab.",
 };
 
 export default function RootLayout({

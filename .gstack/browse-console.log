@@ -1,102 +1,26 @@
-[2026-06-30T10:19:26.752Z] [warning] [.WebGL-0x6ac00933800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
-[2026-06-30T10:19:27.130Z] [warning] [.WebGL-0x6ac00933800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
-[2026-06-30T10:19:28.142Z] [warning] [.WebGL-0x6ac00933800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
-[2026-06-30T10:19:28.147Z] [warning] [.WebGL-0x6ac00933800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
-[2026-06-30T10:37:49.973Z] [info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[2026-06-30T10:37:50.089Z] [log] [HMR] connected
-[2026-06-30T10:37:50.961Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:37:50.963Z] [log] [Fast Refresh] done in 843ms
-[2026-06-30T10:39:34.970Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:39:35.725Z] [log] [Fast Refresh] done in 1463ms
-[2026-06-30T10:39:52.002Z] [info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[2026-06-30T10:39:52.012Z] [log] [HMR] connected
-[2026-06-30T10:39:53.364Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:39:53.364Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:39:53.364Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:39:53.364Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:39:53.364Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:39:53.364Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:39:53.364Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:39:53.364Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:39:54.204Z] [error] [EQUIP] load failed: Error: THREE.GLTFLoader: No DRACOLoader instance provided.
-    at new GLTFDracoMeshCompressionExtension (http://localhost:3000/_next/static/chunks/node_modules_three_examples_jsm_0lh202f._.js:3819:19)
-    at GLTFLoader.parse (http://localhost:3000/_next/static/chunks/node_modules_three_examples_jsm_0lh202f._.js:2989:53)
-    at Object.onLoad (http://localhost:3000/_next/static/chunks/node_modules_three_examples_jsm_0lh202f._.js:2864:23)
-    at http://localhost:3000/_next/static/chunks/node_modules_three_build_three_core_18d0oq6.js:32357:47
-[2026-06-30T10:40:43.478Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:40:45.518Z] [info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[2026-06-30T10:40:45.562Z] [log] [HMR] connected
-[2026-06-30T10:40:47.687Z] [error] [EQUIP] load failed: Error: THREE.GLTFLoader: No DRACOLoader instance provided.
-    at new GLTFDracoMeshCompressionExtension (http://localhost:3000/_next/static/chunks/node_modules_three_examples_jsm_0tzd758._.js:3819:19)
-    at GLTFLoader.parse (http://localhost:3000/_next/static/chunks/node_modules_three_examples_jsm_0tzd758._.js:2989:53)
-    at Object.onLoad (http://localhost:3000/_next/static/chunks/node_modules_three_examples_jsm_0tzd758._.js:2864:23)
-    at http://localhost:3000/_next/static/chunks/node_modules_three_build_three_core_18d0oq6.js:32357:47
-[2026-06-30T10:40:53.577Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:40:53.587Z] [log] [Fast Refresh] done in 372ms
-[2026-06-30T10:41:16.049Z] [info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[2026-06-30T10:41:16.061Z] [log] [HMR] connected
-[2026-06-30T10:41:17.357Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:41:17.357Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:41:17.357Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:41:17.357Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:41:17.357Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:41:17.358Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:41:17.358Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:41:17.358Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:41:24.335Z] [log] [EQUIP] loaded cluster_tool edge verts: 621100
-[2026-06-30T10:42:52.037Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:42:52.053Z] [log] [Fast Refresh] done in 444ms
-[2026-06-30T10:43:15.853Z] [info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[2026-06-30T10:43:15.865Z] [log] [HMR] connected
-[2026-06-30T10:43:17.204Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:43:17.204Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:43:17.204Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:43:17.204Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:43:17.204Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:43:17.204Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:43:17.205Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:43:17.205Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:43:25.397Z] [log] [EQUIP] loaded etch_chamber_hero edge verts: 1487892
-[2026-06-30T10:44:10.270Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:44:10.281Z] [log] [Fast Refresh] done in 541ms
-[2026-06-30T10:44:18.655Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:44:18.663Z] [log] [Fast Refresh] done in 559ms
-[2026-06-30T10:44:37.246Z] [info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[2026-06-30T10:44:37.263Z] [log] [HMR] connected
-[2026-06-30T10:44:38.588Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:44:38.588Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:44:38.588Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:44:38.588Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:44:38.588Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:44:38.588Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:44:38.588Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:44:38.588Z] [warning] HTML5 Audio pool exhausted, returning potentially locked audio object.
-[2026-06-30T10:44:45.488Z] [log] [EQUIP] loaded cluster_tool edge verts: 291640
-[2026-06-30T10:46:18.425Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:46:18.441Z] [log] [Fast Refresh] done in 390ms
-[2026-06-30T10:46:19.630Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:46:19.632Z] [log] [Fast Refresh] done in 786ms
-[2026-06-30T10:46:29.423Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:46:29.450Z] [log] [Fast Refresh] done in 373ms
-[2026-06-30T10:46:30.606Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:46:30.608Z] [log] [Fast Refresh] done in 762ms
-[2026-06-30T10:47:05.870Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:47:05.876Z] [log] [Fast Refresh] done in 393ms
-[2026-06-30T10:47:07.055Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:47:07.059Z] [log] [Fast Refresh] done in 793ms
-[2026-06-30T10:47:14.946Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:47:14.952Z] [log] [Fast Refresh] done in 394ms
-[2026-06-30T10:47:16.118Z] [log] [Fast Refresh] rebuilding
-[2026-06-30T10:47:16.121Z] [log] [Fast Refresh] done in 772ms
-[2026-06-30T10:47:41.815Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
-[2026-06-30T10:47:46.803Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
-[2026-06-30T10:47:51.788Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
-[2026-06-30T10:47:56.794Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
-[2026-06-30T10:48:01.796Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
-[2026-06-30T10:48:10.871Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
-[2026-06-30T10:48:20.166Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
-[2026-06-30T10:48:28.909Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
-[2026-06-30T10:48:37.965Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
-[2026-06-30T10:48:46.907Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
-[2026-06-30T10:48:55.800Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
-[2026-06-30T10:49:04.743Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=JpT8HdcXzgoHIl9r6xEPx' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:21:53.999Z] [info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[2026-06-30T12:21:54.130Z] [log] [HMR] connected
+[2026-06-30T12:21:55.256Z] [warning] [.WebGL-0x7d3c00e96200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[2026-06-30T12:21:56.300Z] [warning] [.WebGL-0x7d3c00e96200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[2026-06-30T12:21:56.897Z] [warning] [.WebGL-0x7d3c00e96200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[2026-06-30T12:21:56.931Z] [warning] [.WebGL-0x7d3c00e96200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+[2026-06-30T12:23:48.461Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T12:23:48.488Z] [log] [Fast Refresh] done in 439ms
+[2026-06-30T12:23:49.792Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T12:23:49.799Z] [log] [Fast Refresh] done in 869ms
+[2026-06-30T12:23:59.384Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T12:23:59.396Z] [log] [Fast Refresh] done in 440ms
+[2026-06-30T12:24:00.744Z] [log] [Fast Refresh] rebuilding
+[2026-06-30T12:24:00.746Z] [log] [Fast Refresh] done in 888ms
+[2026-06-30T12:24:24.560Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:24:29.513Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:24:34.397Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:24:39.269Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:24:44.136Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:24:53.237Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:25:02.112Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:25:11.256Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:25:20.116Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:25:28.966Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:25:37.636Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[2026-06-30T12:25:46.775Z] [error] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=cDa7LfLBG6Oqun-YGiU1L' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED

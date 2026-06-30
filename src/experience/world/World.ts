@@ -1,10 +1,7 @@
 import type Experience from "../Experience";
+import { SLIDES } from "../config";
 import Particles from "./Particles";
 import BaseScene from "./scenes/BaseScene";
-import ProtectScene from "./scenes/ProtectScene";
-import ValidateScene from "./scenes/ValidateScene";
-import TrainingScene from "./scenes/TrainingScene";
-import InvestigateScene from "./scenes/InvestigateScene";
 
 /**
  * Owns the world contents: the 4 slide scenes laid out in a row (each owns its
@@ -18,14 +15,8 @@ export default class World {
 
   constructor(experience: Experience) {
     const { scene } = experience;
-    this.scenes = [
-      new ProtectScene(scene),
-      new ValidateScene(scene),
-      new TrainingScene(scene),
-      new InvestigateScene(scene),
-    ];
-    // build() AFTER all constructors so subclass field initialisers (which run
-    // after super() under useDefineForClassFields) don't clobber fields set in build().
+    // One generic scene per slide; init() runs build() after construction.
+    this.scenes = SLIDES.map((slide) => new BaseScene(scene, slide));
     for (const slideScene of this.scenes) slideScene.init();
     this.particles = new Particles(scene);
 

@@ -31,14 +31,14 @@ export function Loader({ progress, onDone }: LoaderProps) {
         pointerEvents: "all",
       }}
     >
-      {/* ORANO glitch heading */}
+      {/* SHINYLOGIC glitch heading */}
       <div
         style={{
           position: "relative",
           fontFamily: "var(--font-blender), 'Arial Narrow', sans-serif",
           fontWeight: 100,
-          fontSize: 52,
-          letterSpacing: "0.25em",
+          fontSize: 34,
+          letterSpacing: "0.12em",
           textTransform: "uppercase",
           color: "#ffffff",
           animation: "chrome-loader-glow 2s ease-in-out infinite",
@@ -57,7 +57,7 @@ export function Loader({ progress, onDone }: LoaderProps) {
             userSelect: "none",
           }}
         >
-          ORANO
+          SHINYLOGIC
         </span>
         {/* Green chromatic layer */}
         <span
@@ -71,9 +71,9 @@ export function Loader({ progress, onDone }: LoaderProps) {
             userSelect: "none",
           }}
         >
-          ORANO
+          SHINYLOGIC
         </span>
-        ORANO
+        SHINYLOGIC
       </div>
 
       {/* Progress track */}

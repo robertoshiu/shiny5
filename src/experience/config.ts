@@ -1,10 +1,10 @@
 /**
- * Shared scene/UI contract for the Orano "Innovation Slider" clone.
- * Values reverse-engineered from app.js — see docs/research/SCENE_SPEC.md.
+ * Shared scene/UI contract for the ShinyLogic "Innovation Slider".
+ * Originally reverse-engineered from the Orano experience (see docs/research),
+ * re-themed as a semiconductor fab: each slide shows a different process tool.
  * Consumed by BOTH the WebGL track (src/experience/**) and the DOM chrome (src/components/**).
  *
- * Coordinate units are Three.js units exactly as in the original bundle.
- * Colors converted from shader (r,g,b) floats to hex.
+ * Coordinate units are Three.js units. Colors are hex.
  */
 
 export type Vec3 = [number, number, number];
@@ -30,55 +30,64 @@ export interface CameraState {
   pan: [number, number];
 }
 
+export interface EquipmentConfig {
+  /** GLB under /assets/models/equipment (no extension) — loaded as wireframe edges */
+  file: string;
+  /** EdgesGeometry feature-edge threshold in degrees (higher = fewer, cleaner lines) */
+  thresholdAngle: number;
+  /** normalize the model's largest dimension to this many local units (default 14) */
+  targetSize?: number;
+  /** extra Y rotation (radians) to choose a good viewing angle */
+  rotationY?: number;
+}
+
 export interface SlideConfig {
   index: number; // 0..3
   slug: "protect" | "validate" | "training" | "investigate";
   /** big glitch verb title */
   title: string;
-  /** verbatim intro copy */
+  /** intro copy */
   description: string;
   /** crossfading ambient track key while on this slide */
   soundAmbient: "under";
-  /** container transform that holds this slide's models */
+  /** container transform that holds the slide's equipment + topography */
   container: { position: Vec3; rotation: Vec3; scale: number };
-  models: ModelConfig[];
+  /** the semiconductor tool shown as the yellow wireframe highlight */
+  equipment: EquipmentConfig;
   /** landscape camera rig states (angles.container offsets) */
   camera: { unfocus: CameraState; focus: CameraState };
-  /** portrait (mobile) camera states — pulled back/recentred for the tall aspect.
-   *  Falls back to `camera` when absent. */
+  /** portrait (mobile) camera states. Falls back to `camera` when absent. */
   cameraPortrait?: { unfocus: CameraState; focus: CameraState };
   /** chromatic-aberration 3D focal dummy (projected to drive uRadialDumping.xy) */
   rgbFocal: Vec3;
-  /** explore-mode hotspots: 3D anchor + label */
-  keypoints: { id: string; anchor: Vec3; label: string }[];
 }
 
-/** Orano brand yellow + the grey ramp used by line materials. */
+/** ShinyLogic brand yellow + the grey ramp used by line materials. */
 export const COLORS = {
   bg: "#05070f",
   accent: "#ffe600",
   white: "#ffffff",
   grey18: "#2e2e2e", // (0.18)
   grey14: "#242424", // (0.14)
-  grey12: "#1f1f1f", // (0.12) — terrain base + several rooms
+  grey12: "#1f1f1f", // (0.12) — terrain base
   grey10: "#1a1a1a", // (0.10)
-  grey40: "#666666", // (0.40) — sim pillar
-  black: "#000000", // factory silhouette
-  win: "#4c9900", // (0.3,0.6,0) success green
+  grey40: "#666666", // (0.40)
+  black: "#000000",
+  win: "#4c9900",
   scanBlue: "#519bff",
   scanRed: "#ff2900",
 } as const;
 
-/** Terrain shader shared defaults (see SCENE_SPEC §7a). */
+/** Terrain shader shared defaults. */
 export const TERRAIN = {
   texture: "/assets/images/terrain-texture.png",
-  color: COLORS.grey12, // uColor (0.12)
-  focusColor: COLORS.accent, // uFocusColor (1,0.9,0)
+  color: COLORS.grey12,
+  focusColor: COLORS.accent,
   elevationNoiseMultiplier: 0.07,
   focusMultiplier: 0.25, // tamed: 3 over-saturated the focal row into a hard yellow line
 } as const;
 
-/** Post-processing constants (SCENE_SPEC §6). */
+/** Post-processing constants. */
 export const POST = {
   rgbOffset: {
     strength: 15,
@@ -89,7 +98,7 @@ export const POST = {
   transitionGlitch: { tileOffset: [0.03, 0.1] as [number, number], tileAmplitude: 3, gradientAmplitude: 0, durationS: 3 },
 } as const;
 
-/** Camera + world globals (SCENE_SPEC §2,§3,§4). */
+/** Camera + world globals. */
 export const WORLD = {
   clearColor: COLORS.bg,
   camera: { fov: 35, near: 0.1, far: 40 },
@@ -98,7 +107,7 @@ export const WORLD = {
   pixelRatioCap: 2,
 } as const;
 
-/** Howler audio map (SCENE_SPEC §9). file paths under /assets/audio */
+/** Howler audio map. file paths under /assets/audio */
 export const AUDIO = {
   ambientDefault: { file: "/assets/audio/music-main.mp3", loop: true, volume: 1 },
   ambientUnder: { file: "/assets/audio/music-light.mp3", loop: true, volume: 1 },
@@ -112,121 +121,72 @@ export const AUDIO = {
 
 const PI = Math.PI;
 
+// All four slides share the same framing (the proven INVESTIGATE rig): the tool sits
+// at container (0,2,-5) inside each scene's row, normalized to ~14 local units, over the
+// grid + topography construction lines. Per-slide variety comes from the tool + verb.
+const CONTAINER = { position: [0, 2, -5] as Vec3, rotation: [0, -PI / 2, 0] as Vec3, scale: 0.05 };
+const CAMERA = {
+  unfocus: { pos: [-0.472, 2.713, -6.2] as Vec3, rot: [-0.55, 3.34, 0] as Vec3, pan: [0.06, 0.04] as [number, number] },
+  focus: { pos: [0.872, 2.513, -5.6] as Vec3, rot: [-0.55, 2.34, 0] as Vec3, pan: [0.06, 0.04] as [number, number] },
+};
+const CAMERA_PORTRAIT = {
+  unfocus: { pos: [-0.2, 2.7, -6.8] as Vec3, rot: [-0.5, 3.18, 0] as Vec3, pan: [0.06, 0.04] as [number, number] },
+  focus: { pos: [-0.2, 2.7, -6.8] as Vec3, rot: [-0.5, 3.18, 0] as Vec3, pan: [0.06, 0.04] as [number, number] },
+};
+const focal = (i: number): Vec3 => [0, 2, i * 60 - 5]; // equipment world Z per scene row
+
 export const SLIDES: SlideConfig[] = [
   {
     index: 0,
     slug: "protect",
-    title: "Protect",
+    title: "Pattern",
     description:
-      "Locating gamma radiation sources in nonaccessible area is challenging, and a major safety concern. Thanks to NanoPix, this miniature gamma camera can squeeze itself into tiny spaces making the invisible visible.",
+      "The scanner projects each circuit layer onto the wafer, exposing features only nanometres wide. Every layer of the chip starts here, aligned to the one beneath it with sub-nanometre overlay.",
     soundAmbient: "under",
-    container: { position: [0.4, 0, -5.3], rotation: [0, -2.3, 0], scale: 0.2 },
-    models: [
-      { file: "rover", color: COLORS.grey18, role: "env", reveal: [0, 0.25, 0.68] },
-      { file: "nanopix", color: COLORS.accent, role: "highlight", reveal: [0, 0.92, -0.19] },
-      // faint grey, not pure black: additive blending made #000 invisible, but the
-      // reference shows faint background factory/tower structures.
-      { file: "factory", color: "#161616", role: "silhouette" },
-    ],
-    camera: {
-      unfocus: { pos: [0.24, 0.1, -5.8], rot: [0, 3.24, 0], pan: [0.06, 0.04] },
-      focus: { pos: [0.236, 0.1587, -5.7221], rot: [-0.2369, 3.666, 0], pan: [0.06, 0.04] },
-    },
-    cameraPortrait: {
-      unfocus: { pos: [0.4, 0.2, -6.2], rot: [-0.36, 3.13, 0], pan: [0.06, 0.04] },
-      focus: { pos: [0.4, 0.2, -6.2], rot: [-0.36, 3.13, 0], pan: [0.06, 0.04] },
-    },
-    rgbFocal: [0.4, 0.1, -5.3],
-    keypoints: [
-      { id: "nanopix", anchor: [-0.15, 0.58, -0.05], label: "Due to its small size, the NanoPix is easy to transport" },
-      { id: "rover", anchor: [0, 0.3, 0.3], label: "The camera can also be mounted on robots, mechanical arms and drones" },
-    ],
+    container: CONTAINER,
+    equipment: { file: "litho_scanner", thresholdAngle: 44 },
+    camera: CAMERA,
+    cameraPortrait: CAMERA_PORTRAIT,
+    rgbFocal: focal(0),
   },
   {
     index: 1,
     slug: "validate",
-    title: "Validate",
+    title: "Deposit",
     description:
-      "The TQC2 (as designed/as built) project aims to use augmented reality to facilitate compliance monitoring on potentially complex equipment or facilities, while offering better traceability and improving the comfort of operators.",
+      "Chemical vapour deposition grows atom-thin films across the wafer — conductors, insulators and barriers stacked layer upon layer to build each transistor in three dimensions.",
     soundAmbient: "under",
-    container: { position: [-0.64, 0.13, -5.5], rotation: [0, -0.79 * PI, PI / 2], scale: 0.06 },
-    models: [
-      { file: "factory-room", color: COLORS.grey10, role: "env" },
-      { file: "tank", color: COLORS.grey14, role: "env" },
-      // tablet body is the yellow highlight (matches the reference's yellow tablet frame);
-      // the AR screen texture plane is added on top in ValidateScene.
-      { file: "tablet", color: COLORS.accent, role: "highlight", reveal: [1.24, 0.15, -3.12] },
-    ],
-    camera: {
-      unfocus: { pos: [-0.32, 0.12, -5.8], rot: [0, 2.14, 0], pan: [0.06, 0.04] },
-      focus: { pos: [-0.264, 0.1487, -5.7221], rot: [0, 2.25, 0], pan: [0.06, 0.04] },
-    },
-    cameraPortrait: {
-      unfocus: { pos: [-0.13, 0.114, -5.98], rot: [0, 2.14, 0], pan: [0.06, 0.04] },
-      focus: { pos: [-0.13, 0.114, -5.98], rot: [0, 2.14, 0], pan: [0.06, 0.04] },
-    },
-    rgbFocal: [-0.65, 0.13, 54.52],
-    keypoints: [
-      { id: "tablet1", anchor: [-0.15, 0.2, -0.1], label: "Augmented reality features can be activated within the DIOTAPLAYER interface, overlaying 3D elements on top of your physical environment" },
-      { id: "tablet2", anchor: [0.25, 0.5, 0.7], label: "Instructions on the physical object are combined with contextual information corresponding to outstanding tasks" },
-      { id: "tablet3", anchor: [0.4, 0.6, -0.9], label: "To support ground operations we've made it easy to manipulate the collected data without extensive training" },
-    ],
+    container: CONTAINER,
+    equipment: { file: "thinfilm_cvd", thresholdAngle: 38 },
+    camera: CAMERA,
+    cameraPortrait: CAMERA_PORTRAIT,
+    rgbFocal: focal(1),
   },
   {
     index: 2,
     slug: "training",
-    title: "Training",
+    title: "Diffuse",
     description:
-      "Training in the driving of a polar crane in a nuclear power plant in order to practice handling heavy loads and dealing with situations that are hazardous or require familiarization prior to implementation: moving large components in and out of the zone, positioning and maintenance of tooling.",
+      "Inside the furnace, wafers are heated past a thousand degrees so dopant atoms diffuse into the silicon lattice, setting precisely where and how current will flow.",
     soundAmbient: "under",
-    container: { position: [1, 0, -4.85], rotation: [0, 0, 0], scale: 0.1 },
-    models: [
-      { file: "simulator-room", color: COLORS.grey12, role: "env", reveal: [-57.66, 1.24, 18.7] },
-      { file: "simulator-outside", color: COLORS.grey18, role: "env", reveal: [5.61, 1.24, -0.94] },
-      { file: "simulator-inside", color: COLORS.accent, role: "highlight" }, // the yellow operator seat/cabin interior
-    ],
-    camera: {
-      unfocus: { pos: [0.18, 0.5, -5.8], rot: [-0.25, 3.64, 0], pan: [0.06, 0.04] },
-      focus: { pos: [0.6, 0.35, -5.8], rot: [-0.15, 3.7, 0], pan: [0.06, 0.04] },
-    },
-    cameraPortrait: {
-      unfocus: { pos: [-0.23, 0.63, -6.25], rot: [-0.25, 3.64, 0], pan: [0.06, 0.04] },
-      focus: { pos: [-0.23, 0.63, -6.25], rot: [-0.25, 3.64, 0], pan: [0.06, 0.04] },
-    },
-    rgbFocal: [0.95, 0.2, 115.1],
-    keypoints: [
-      { id: "simulator1", anchor: [0, 3.5, -0.8], label: "The virtual cabin enables situational training for scenarios that are either risky or require sensitisation before real-world execution" },
-      { id: "simulator2", anchor: [2.7, 2.3, 0.7], label: "The positioning of the seven screens is optimised for total immersion inside the environment, with identical audio and heat conditions" },
-      { id: "simulator3", anchor: [0.55, 1.6, -0.4], label: "The equipment features the creation of scenarios on-demand, including extreme or unprecedented situations" },
-    ],
+    container: CONTAINER,
+    equipment: { file: "diffusion_furnace", thresholdAngle: 28 },
+    camera: CAMERA,
+    cameraPortrait: CAMERA_PORTRAIT,
+    rgbFocal: focal(2),
   },
   {
     index: 3,
     slug: "investigate",
     title: "Fabricate",
     description:
-      "At the heart of the fab, a semiconductor cluster tool links several vacuum process chambers around a central wafer-handling robot. Etch, deposition and metrology run back to back without ever breaking vacuum, fabricating each chip layer by layer with nanometre precision.",
+      "At the heart of the fab, a cluster tool links several vacuum process chambers around a central wafer-handling robot. Etch, deposition and metrology run back to back without ever breaking vacuum, fabricating each chip layer by layer with nanometre precision.",
     soundAmbient: "under",
-    container: { position: [0, 2, -5], rotation: [0, -PI / 2, 0], scale: 0.05 },
-    models: [
-      { file: "drone-base", color: COLORS.accent, role: "highlight", reveal: [7, -1, 0] },
-      { file: "drone-rotor", color: COLORS.accent, role: "highlight", spin: { axis: "y", speed: 0.015 } },
-      // topography contour layers (env) are added in code from topography-1..4
-      { file: "topography-1", color: COLORS.grey18, role: "env" },
-    ],
-    camera: {
-      unfocus: { pos: [-0.472, 2.713, -6.2], rot: [-0.55, 3.34, 0], pan: [0.06, 0.04] },
-      focus: { pos: [0.872, 2.513, -5.6], rot: [-0.55, 2.34, 0], pan: [0.06, 0.04] },
-    },
-    cameraPortrait: {
-      unfocus: { pos: [-0.2, 2.7, -6.8], rot: [-0.5, 3.18, 0], pan: [0.06, 0.04] },
-      focus: { pos: [-0.2, 2.7, -6.8], rot: [-0.5, 3.18, 0], pan: [0.06, 0.04] },
-    },
-    rgbFocal: [0, 2, 175.12],
-    keypoints: [
-      { id: "drone1", anchor: [4.5, -0.5, 0], label: "Drones are used in exploration and support missions for mining or denuclearisation activities" },
-      { id: "drone2", anchor: [1, -2.5, 0], label: "The use of drones facilitates the acquisition of images and topographical data for inspection or cartography" },
-    ],
+    container: CONTAINER,
+    equipment: { file: "cluster_tool", thresholdAngle: 35 },
+    camera: CAMERA,
+    cameraPortrait: CAMERA_PORTRAIT,
+    rgbFocal: focal(3),
   },
 ];
 

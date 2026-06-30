@@ -1,8 +1,9 @@
 import * as THREE from "three";
 import gsap from "gsap";
-import { WORLD, type SlideConfig, type ModelConfig, type Vec3 } from "../../config";
+import { WORLD, COLORS, type SlideConfig, type ModelConfig, type Vec3 } from "../../config";
 import { createRevealLineMaterial } from "../../materials/revealLineMaterial";
 import { loadObjLines } from "../../resources/objLines";
+import { loadGlbEdges } from "../../resources/glbEdges";
 import { asset } from "@/lib/asset";
 import Terrain from "../Terrain";
 
@@ -77,9 +78,24 @@ export default class BaseScene {
     this.build();
   }
 
-  /** Default: load every model from the slide config. */
+  /** Build the slide: topography construction-line ground + the equipment (yellow). */
   protected build(): void {
-    for (const model of this.slide.models) this.addModel(model);
+    // Topography contour layers — the shared construction-line ground field.
+    for (let i = 1; i <= 4; i++) {
+      this.addModel({ file: `topography-${i}`, color: COLORS.grey18, role: "env" }, this.container);
+    }
+
+    // The slide's semiconductor tool, as wireframe EDGE lines (yellow highlight).
+    const eq = this.slide.equipment;
+    loadGlbEdges(asset(`/assets/models/equipment/${eq.file}.glb`), {
+      thresholdAngle: eq.thresholdAngle,
+      targetSize: eq.targetSize ?? 14,
+    })
+      .then((geo) => {
+        const lines = this.addGeometry(geo, COLORS.accent, [0, 0, 0], this.container);
+        if (eq.rotationY) lines.rotation.y = eq.rotationY;
+      })
+      .catch((err) => console.error("[equipment] load failed:", err));
   }
 
   /** Load one OBJ as LineSegments with a reveal material; wire reveal + spin. */
